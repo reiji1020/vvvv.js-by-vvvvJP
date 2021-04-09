@@ -2,7 +2,12 @@
 // (c) 2011 Matthias Zauner
 // VVVV.js is freely distributable under the MIT license.
 // Additional authors of sub components are mentioned at the specific code locations.
-if (typeof define !== 'function') { var define = require(VVVVContext.Root+'/node_modules/amdefine')(module, VVVVContext.getRelativeRequire(require)) }
+if (typeof define !== "function") {
+  var define = require(VVVVContext.Root + "/node_modules/amdefine")(
+    module,
+    VVVVContext.getRelativeRequire(require)
+  );
+}
 
 define(function (require, exports) {
   const _ = require("underscore");
@@ -56,7 +61,7 @@ define(function (require, exports) {
   exports.Node = require("core/vvvv.core.node");
   exports.Patch = require("core/vvvv.core.patch");
   exports.Link = require("core/vvvv.core.link");
-  const patch = new exports.Patch("");
+  let patch = new exports.Patch("");
   _(defs.Nodes).each(function (nodes) {
     const x = new nodes(0, patch);
     if (VVVV_ENV === "development") console.log("Registering " + x.nodename);
